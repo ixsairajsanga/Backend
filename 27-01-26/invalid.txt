@@ -1,2 +1,4 @@
 2, Ravi,17 --> Age must be between 18 and 60
 x, John,25 --> Invalid numeric value
+ --> Invalid record format
+sairaj,51,21 --> Invalid numeric value
