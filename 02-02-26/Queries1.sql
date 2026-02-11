@@ -212,13 +212,18 @@ SELECT * FROM students WHERE AGE>20 ORDER BY AGE;
 
 SELECT COUNT(name) FROM students WHERE name LIKE '%a%';
 
-
 SELECT course_name,fees FROM courses WHERE fees BETWEEN 2000 AND 20000 ORDER BY fees;
 
 SELECT * FROM students WHERE active_flag=0 AND AGE IS NOT NULL;
 
 SELECT student_id FROM enrollments GROUP BY student_id HAVING COUNT(student_id)>1;
 
+
+
+SELECT * FROM STUDENTS;
+
+
+SELECT * FROM STUDENTS  WHERE age = SELECT age=MAX(age);
 
 
 
