@@ -57,10 +57,15 @@ alter table employee add salary int;
 CREATE table department(dept_id int primary key,
 dept_name varchar(20), loc varchar(20));
  
-insert into employee values (1110,'Sairaj',242,'manager',null),
-(1111,'Divya',241,'analyst',1110),
-(1112,'Rishi',253,'developer',1113),
-(1113,'Vishnu',243,'manager',null);
+insert into employee values (1110,'Sairaj',111,'manager',null,50000),
+(1111,'Divya',222,'analyst',1110,60000),
+(1112,'Rishi',333,'developer',1113,30000),
+(1113,'Vishnu',444,'manager',null,20000),
+(1114,'harati',333,'developer',1113,10000),
+(1115,'saravanthi',222,'analyst',1110,100000),
+(1116,'snehith',222,'analyst',1110,20000),
+(1117,'kodi',111,'analyst',1110,60000);
+
  
 insert into employee values
 (1114,'Kodi',222,'QA',1113);
@@ -318,16 +323,18 @@ from customers c join orders o on c.id=o.customer_id;
 
 
 
+select d.dept_name ,count(e.e_id) from employee e join department d on e.d_id =d.dept_id GROUP BY d.dept_name;
+
+alter TABLE  employee 
+add CONSTRAINT emp_fk
+FOREIGN KEY (d_id) references department(dept_id);
 
 
 
+select p.p_namee, count(o.order_id) from products p join orders o on o.product_name=p.p_namee group by p.p_namee having count(o.order_id)<5;
 
 
-
-
-
-
-
+select e.e_name ,m.e_name from employee e join employee m on e.manager=m.e_id;
 
 
 
