@@ -295,16 +295,7 @@ select * from customers where not exists(select customer_id from orders);--*
  
 
  
-select * from customers;
- 
-select * from orders;
- 
-select * from products;
- 
-select * from department;
- 
-select * from employee;
- 
+
 
 
 --MULTI-SELECT JOIN
@@ -335,6 +326,75 @@ select p.p_namee, count(o.order_id) from products p join orders o on o.product_n
 
 
 select e.e_name ,m.e_name from employee e join employee m on e.manager=m.e_id;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select * from customers;
+ 
+select * from orders;
+ 
+select * from products;
+ 
+select * from department;
+ 
+select * from employee;
+ 
+
+
+
+
+select c.id,c.name,c.country,c.phone_no from customers c left join orders o on c.id=o.customer_id where product_name is null
+
+
+select * from customers c 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
