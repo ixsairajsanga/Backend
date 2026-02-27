@@ -1,8 +1,8 @@
 use criminals
 
 
-CREATE TABLE precincts (
-    precinct_id INT PRIMARY KEY,
+CREATE TABLE controlled_area (
+    controlled_area_id INT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     location VARCHAR(150)
 );
@@ -14,8 +14,8 @@ CREATE TABLE officers (
     name VARCHAR(100) NOT NULL,
     rank VARCHAR(50),
     security_level INT NOT NULL,
-    precinct_id INT,
-    FOREIGN KEY (precinct_id) REFERENCES precincts(precinct_id)
+    controlled_area_id INT,
+    FOREIGN KEY (controlled_area_id) REFERENCES controlled_area(controlled_area_id)
 );
 
 
@@ -24,11 +24,11 @@ CREATE TABLE incidents (
     incident_id INT PRIMARY KEY,
     title VARCHAR(200),
     description TEXT,
-    precinct_id INT,
+    controlled_area_id INT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     current_status VARCHAR(50) CHECK (current_status IN ('OPEN','UNDER_INVESTIGATION','CLOSED')),
     required_security_level INT NOT NULL,
-    FOREIGN KEY (precinct_id) REFERENCES precincts(precinct_id)
+    FOREIGN KEY (controlled_area_id) REFERENCES controlled_area(controlled_area_id)
 );
 
 
@@ -117,7 +117,7 @@ CREATE TABLE audit_logs (
 
 
 
-INSERT INTO precincts VALUES
+INSERT INTO controlled_area VALUES
 (1, 'Central Precinct', 'Downtown'),
 (2, 'West Precinct', 'West City');
 
@@ -237,7 +237,7 @@ INSERT INTO audit_logs VALUES
 
 
 
-select * from  precincts;
+select * from  controlled_area;
 
 select * from officers;
 
