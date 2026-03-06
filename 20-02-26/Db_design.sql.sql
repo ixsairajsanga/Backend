@@ -239,9 +239,7 @@ INSERT INTO audit_logs VALUES
 
 select * from  controlled_area;
 
-select * from officers;
 
-select * from incidents;
 
 select * from incident_officers;
 
@@ -256,6 +254,10 @@ SELECT  * from evidence_movements;
 select * from incident_status_history;
 
 select * from  audit_logs;
+
+select * from officers;
+
+select * from incidents;
 
 
 
@@ -293,7 +295,30 @@ LEFT JOIN evidence_movements m ON e.evidence_id = m.evidence_id
 WHERE m.evidence_id IS NULL;
 
 
-select  incident_id ,count(*) from incident_officers group by incident_id  having count(*)>3
+select  incident_id ,count(*) as count_of_officers from incident_officers group by incident_id  having count(*)>3
+
+
+
+
+select o.officer_id,o.name from officers o join incident_officers i on o.officer_id=i.officer_id where i.incident_id=201;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
