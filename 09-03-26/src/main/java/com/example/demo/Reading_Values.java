@@ -7,12 +7,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class Reading_Values {
 
-    @Value("${app.name}")
-    private String appName;
+    @Value("${msg}")
+    private String Message;
 
     @PostConstruct
     public void printAppName(){
-        System.out.println("Application Name "+appName);
+        System.out.println("Application Name "+Message);
     }
 
 
