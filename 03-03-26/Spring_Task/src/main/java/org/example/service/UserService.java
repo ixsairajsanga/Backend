@@ -18,4 +18,10 @@ public class UserService {
         System.out.println("Processing user");
     }
 
+
+    public void registerUser(){
+        repo.saveUser();
+        System.out.println("User registered");
+    }
+
 }

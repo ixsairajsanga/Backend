@@ -6,41 +6,39 @@ import org.example.repository.UserRepository;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
+import java.util.logging.Logger;
 
 
 @Component
 public class BeanLifeCycle implements InitializingBean, DisposableBean {
 
+    private static final Logger logger =Logger.getLogger(BeanLifeCycle.class.getName());
 
    private UserRepository repo;
 
     public BeanLifeCycle(UserRepository repo){
-        System.out.println("Constructor Called");
+        logger.info("Constructor Called");
         this.repo = repo;
     }
 
     @PostConstruct
     public void postConstruct(){
-        System.out.println("PostConstruct Called");
+        logger.info("PostConstruct Called");
     }
 
     @Override
     public void afterPropertiesSet(){
-        System.out.println("InitializingBean Called");
-    }
-
-    public void processUser(){
-        repo.getUser();
+        logger.info("InitializingBean Called");
     }
 
     @PreDestroy
     public void preDestroy(){
-        System.out.println("PreDestroy Called");
+        logger.info("PreDestroy Called");
     }
 
     @Override
     public void destroy(){
-        System.out.println("DisposableBean destroy Called");
+        logger.info("DisposableBean destroy Called");
     }
 
 }

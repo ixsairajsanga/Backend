@@ -22,7 +22,10 @@ public class App {
 
         BeanLifeCycle cycle=context.getBean(BeanLifeCycle.class);
 
+
+        service.registerUser();
         service.processUser();
+
         context.close();
     }
 }

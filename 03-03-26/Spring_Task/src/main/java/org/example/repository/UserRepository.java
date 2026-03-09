@@ -10,4 +10,8 @@ public class UserRepository {
         System.out.println("Fetching user from DB");
     }
 
+    public void saveUser(){
+        System.out.println("Saved the user");
+    }
+
 }
