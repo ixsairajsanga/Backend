@@ -10,9 +10,11 @@ public class Reading_Values {
     @Value("${msg}")
     private String Message;
 
+   @Value("${instapass}") private int pass;
     @PostConstruct
     public void printAppName(){
         System.out.println("Application Name "+Message);
+        System.out.println(pass);
     }
 
 
